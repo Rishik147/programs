@@ -69,5 +69,19 @@ public class Runner {
             listIterator.remove();
         }
         System.out.println("Size after clearing via ListIterator: " + list1.size());
+
+        /*
+         * THREAD SAFETY CONSIDERATIONS:
+         * 
+         * 1. ArrayList is NOT thread-safe. If multiple threads access it concurrently, 
+         *    and at least one thread modifies it, it must be synchronized externally.
+         * 
+         * 2. Fail-Fast Iterators: Iterators for ArrayList throw ConcurrentModificationException 
+         *    if the list is modified after the iterator is created (except through the iterator's own remove/add methods).
+         * 
+         * 3. Alternatives for Thread Safety:
+         *    - Collections.synchronizedList(new ArrayList<>()): Wraps the list in a synchronized object.
+         *    - CopyOnWriteArrayList: Best for scenarios where reads vastly outnumber writes.
+         */
     }
 }
