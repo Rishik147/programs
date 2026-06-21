@@ -1,6 +1,9 @@
 package collections.streams;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -42,9 +45,9 @@ public class Runner {
 
         List<List<Integer>> lists = List.of(List.of(1, 2, 3), List.of(4, 5), List.of(6, 7, 8));
         List<Integer> q5 = lists.stream()
-                .flatMap(Collection::stream)
+                .flatMap((List<Integer> l) -> l.stream().map(x -> x * 2))
                 .toList();
-        System.out.println("Flattened list: " + q5);
+        System.out.println("Flattened list by multiplying every element with 2: " + q5);
 
         System.out.println("----------");
 
