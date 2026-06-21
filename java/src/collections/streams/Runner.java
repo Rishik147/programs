@@ -3,6 +3,7 @@ package collections.streams;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Runner {
     public static void main(String[] args) {
@@ -63,6 +64,11 @@ public class Runner {
         String q8 = list2.stream()
                 .collect(Collectors.joining(":"));
         System.out.println(q8);
+
+        System.out.println("----------");
+
+        Stream<Integer> stream = Stream.iterate(10, (Integer i) -> i + 10).limit(10);
+        stream.forEach(System.out::println);
 
     }
 }
